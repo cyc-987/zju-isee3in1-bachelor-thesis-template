@@ -1,0 +1,37 @@
+\documentclass[a4paper, 12bp, twoside]{isee3in1}
+%-----------------------------------------------------------------
+% global information
+%-----------------------------------------------------------------
+\newcommand{\StudentName}{张三}
+\newcommand{\StudentID}{3220106666}
+\newcommand{\Supervisor}{李四 教授}
+\newcommand{\Grade}{2022级}
+\newcommand{\Major}{电子科学与技术}
+\newcommand{\College}{信息与电子工程学院}
+\newcommand{\ProjectName}{这是课题题目}
+%-----------------------------------------------------------------
+% main doc
+%-----------------------------------------------------------------
+\begin{document}
+% 目录
+\makecover
+% 正文字体设置
+\zihao{-4}
+% 课题信息页
+\newpage
+\thispagestyle{infoPage}
+\include{contents/00_Info}
+% 目录页
+\newpage
+\thispagestyle{indexPage}
+\tableofcontents
+\vspace{12pt}\noindent {\CJKfamily{simhei}\fontsize{12bp}{18bp}\bfseries \hspace{0.36em}《浙江大学本科生文献综述和开题报告考核表》}\vspace{6pt}
+% 正文部分
+\newpage
+\pagestyle{mainPage}
+\include{contents/01_Review}
+\include{contents/02_Report}
+\include{contents/03_Translate}
+\include{contents/04_TransOriginal}
+\include{contents/05_Eval}
+\end{document}
