@@ -34,6 +34,7 @@
 \RequirePackage{algpseudocode}
 \RequirePackage{chapterbib}
 \RequirePackage{gbt7714}
+\RequirePackage{fontspec}
 %-----------------------------------------------------------------
 % format settings
 %-----------------------------------------------------------------
@@ -44,6 +45,7 @@
 % 全局行距1.5
 \onehalfspacing
 % 字体族
+\setmainfont{Times New Roman}
 \defaultfontfeatures{Path=assets/fonts/}
 \setCJKmainfont[AutoFakeBold={6}]{STFangsong.ttf} % 主要字体为华文仿宋
 \setCJKfamilyfont{simhei}{SimHei.ttf}[AutoFakeBold={4}] % 黑体family
