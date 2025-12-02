@@ -26,6 +26,7 @@
 \RequirePackage{multirow}
 \RequirePackage{array}
 \RequirePackage{enumerate}
+\RequirePackage{enumitem}
 \RequirePackage{caption}
 \RequirePackage{amsmath}
 \RequirePackage{indentfirst}
@@ -56,6 +57,9 @@
 \numberwithin{equation}{subsection} % 将公式编号与章节关联
 \numberwithin{figure}{subsection} % 图的编号与章节关联
 \numberwithin{table}{subsection}  % 表的编号与章节关联
+% 设置 enumerate 的编号格式为 (1)
+\renewcommand{\theenumi}{(\arabic{enumi})}
+\renewcommand{\labelenumi}{\theenumi}
 %-----------------------------------------------------------------
 % Syntactic sugar
 %-----------------------------------------------------------------
