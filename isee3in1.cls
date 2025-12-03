@@ -47,9 +47,9 @@
 % 字体族
 \setmainfont{Times New Roman}
 \defaultfontfeatures{Path=assets/fonts/}
-\setCJKmainfont[AutoFakeBold={6}]{STFangsong.ttf} % 主要字体为华文仿宋
-\setCJKfamilyfont{simhei}{SimHei.ttf}[AutoFakeBold={4}] % 黑体family
-\setCJKfamilyfont{simsun}{SimSun.ttc}[AutoFakeBold={4}] % 宋体family
+\setCJKmainfont[AutoFakeBold={6}, AutoFakeSlant=0.2]{STFangsong.ttf} % 主要字体为华文仿宋
+\setCJKfamilyfont{simhei}{SimHei.ttf}[AutoFakeBold={4}, AutoFakeSlant=0.2] % 黑体family
+\setCJKfamilyfont{simsun}{SimSun.ttc}[AutoFakeBold={4}, AutoFakeSlant=0.2] % 宋体family
 % 图表设定
 \renewcommand{\thetable}{\arabic{subsection}.\arabic{table}}
 \renewcommand{\figurename}{\ptheadingfont{图}}
