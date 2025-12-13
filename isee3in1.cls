@@ -46,10 +46,10 @@
 \onehalfspacing
 % 字体族
 \setmainfont{Times New Roman}
-\defaultfontfeatures{Path=assets/fonts/}
-\setCJKmainfont[AutoFakeBold={6}, AutoFakeSlant=0.2]{STFangsong.ttf} % 主要字体为华文仿宋
-\setCJKfamilyfont{simhei}{SimHei.ttf}[AutoFakeBold={4}, AutoFakeSlant=0.2] % 黑体family
-\setCJKfamilyfont{simsun}{SimSun.ttc}[AutoFakeBold={4}, AutoFakeSlant=0.2] % 宋体family
+% \defaultfontfeatures{Path=assets/fonts/}
+\setCJKmainfont[Path=assets/fonts/, AutoFakeBold={6}, AutoFakeSlant=0.2]{STFangsong.ttf} % 主要字体为华文仿宋
+\setCJKfamilyfont{simhei}{SimHei.ttf}[Path=assets/fonts/, AutoFakeBold={4}, AutoFakeSlant=0.2] % 黑体family
+\setCJKfamilyfont{simsun}{SimSun.ttc}[Path=assets/fonts/, AutoFakeBold={4}, AutoFakeSlant=0.2] % 宋体family
 % 图表设定
 \renewcommand{\thetable}{\arabic{subsection}.\arabic{table}}
 \renewcommand{\figurename}{\ptheadingfont{图}}
@@ -89,7 +89,8 @@ Test content. Test content. Test content. Test content. Test content. Test conte
 \fancypagestyle{indexPage}{
     \fancyhf{}
 	\setcounter{page}{1}\pagenumbering{Roman}
-	\fancyhead[R]{\headfont \ProjectName}
+	\fancyhead[RO]{\headfont \ProjectName}
+    \fancyhead[LE]{\headfont{浙江大学本科生毕业论文（设计）}}
 	\fancyfoot[C]{\footfont \thepage}
 }
 \fancypagestyle{mainPage}{
