@@ -35,6 +35,8 @@
 \RequirePackage{chapterbib}
 \RequirePackage{gbt7714}
 \RequirePackage{fontspec}
+\RequirePackage{tabularx}
+\RequirePackage{amssymb}
 %-----------------------------------------------------------------
 % format settings
 %-----------------------------------------------------------------
@@ -47,7 +49,7 @@
 % 字体族
 \setmainfont{Times New Roman}
 % \defaultfontfeatures{Path=assets/fonts/}
-\setCJKmainfont[Path=assets/fonts/, AutoFakeBold={6}, AutoFakeSlant=0.2]{STFangsong.ttf} % 主要字体为华文仿宋
+\setCJKmainfont[Path=assets/fonts/, AutoFakeBold={4.5}, AutoFakeSlant=0.2]{STFangsong.ttf} % 主要字体为华文仿宋
 \setCJKfamilyfont{simhei}{SimHei.ttf}[Path=assets/fonts/, AutoFakeBold={4}, AutoFakeSlant=0.2] % 黑体family
 \setCJKfamilyfont{simsun}{SimSun.ttc}[Path=assets/fonts/, AutoFakeBold={4}, AutoFakeSlant=0.2] % 宋体family
 % 图表设定
@@ -65,12 +67,13 @@
 %-----------------------------------------------------------------
 % Syntactic sugar
 %-----------------------------------------------------------------
+\newcommand{\setfont}[2]{\zihao{#1}\linespread{#2}\selectfont}
 % 常用字体
-\newcommand{\mainfont}[1]{{\fontsize{12bp}{18bp}\selectfont{#1}}} % 正文：小四12磅仿宋1.5行距
-\newcommand{\ptheadingfont}[1]{{\CJKfamily{simsun}\fontsize{10.5bp} {15.75bp}\selectfont\bfseries{#1}}} % 图表标题：五号宋体10.5磅加粗1.5行距
-\newcommand{\ptmainfont}[1]{{\CJKfamily{simsun}\fontsize{10.5bp}{10.5bp}\selectfont{#1}}} % 图表正文：五号宋体10.5磅1行距
-\newcommand{\headfont}[1]{{\CJKfamily{simsun}\fontsize{9bp}{9bp}\selectfont{#1}}}
-\newcommand{\footfont}[1]{{\fontsize{9bp}{9bp}\selectfont{#1}}}
+\newcommand{\mainfont}[1]{{\setfont{-4}{1.5}{#1}}} % 正文：小四12磅仿宋1.5行距
+\newcommand{\ptheadingfont}[1]{{\CJKfamily{simsun}\setfont{5}{1.5}\bfseries{#1}}} % 图表标题：五号宋体10.5磅加粗1.5行距
+\newcommand{\ptmainfont}[1]{{\CJKfamily{simsun}\setfont{5}{1}{#1}}} % 图表正文：五号宋体10.5磅1行距
+\newcommand{\headfont}[1]{{\CJKfamily{simsun}\setfont{-5}{1}{#1}}}
+\newcommand{\footfont}[1]{{\setfont{-5}{1}{#1}}}
 % 占位符
 \newcommand{\bullshit}{{
 尝试写一点正文，用于测试。尝试写一点正文，用于测试。尝试写一点正文，用于测试。尝试写一点正文，用于测试。尝试写一点正文，用于测试。尝试写一点正文，用于测试。尝试写一点正文，用于测试。
@@ -105,28 +108,28 @@ Test content. Test content. Test content. Test content. Test content. Test conte
 %-----------------------------------------------------------------
 % 多级标题设置
 \setcounter{secnumdepth}{4}
-\titleformat{\section}[block]{\centering\zihao{3}\bfseries}{\chinese{section}、}{0pt}{}
-\titleformat{\subsection}[block]{\zihao{-3}\bfseries}{\arabic{subsection}}{0.5em}{}
-\titleformat{\subsubsection}[block]{\zihao{4}\bfseries}{\arabic{subsection}.\arabic{subsubsection}}{0.5em}{}
-\titleformat{\paragraph}{\zihao{4}\bfseries}{\arabic{subsection}.\arabic{subsubsection}.\arabic{paragraph}}{0.5em}{}
+\titleformat{\section}[block]{\centering\setfont{3}{1}\bfseries}{\chinese{section}、}{0pt}{}
+\titleformat{\subsection}[block]{\setfont{3}{1}\bfseries}{\arabic{subsection}}{0.5em}{}
+\titleformat{\subsubsection}[block]{\setfont{-3}{1}\bfseries}{\arabic{subsection}.\arabic{subsubsection}}{0.5em}{}
+\titleformat{\paragraph}{\setfont{4}{1.5}\bfseries}{\arabic{subsection}.\arabic{subsubsection}.\arabic{paragraph}}{0.5em}{}
 % 设置段间距
-\titlespacing{\section}{0pt}{8bp}{8bp}
+\titlespacing{\section}{0pt}{12pt}{6pt}
 \titlespacing{\subsection}{0pt}{8bp}{8bp}
 \titlespacing{\subsubsection}{0pt}{7.5bp}{7.5bp}
-\titlespacing{\paragraph}{0pt}{7bp}{7bp}
+\titlespacing{\paragraph}{0pt}{0bp}{0bp}
 %-----------------------------------------------------------------
 % content settings
 %-----------------------------------------------------------------
-\renewcommand{\contentsname}{\fontsize{16bp}{32bp}\bfseries\centering 目录} 
+\renewcommand{\contentsname}{\setfont{3}{2}\bfseries\centering 目录} 
 \setcounter{tocdepth}{3}
 \renewcommand{\thesection}{\CJKfamily{simhei}\chinese{section}、}
 \renewcommand{\thesubsection}{\arabic{subsection}}
 \renewcommand{\thesubsubsection}{\arabic{subsection}.\arabic{subsubsection}}
 \renewcommand{\theparagraph}{\arabic{subsection}.\arabic{subsubsection}.\arabic{paragraph}}
-\titlecontents{section}[2em]{\CJKfamily{simhei}\bfseries\fontsize{12bp}{18bp}}{\contentslabel{2em}}{}{\titlerule*[0.5pc]{$\cdot$}\contentspage}
-\titlecontents{subsection}[2.5em]{\fontsize{12bp}{18bp}}{\contentslabel{1em}}{}{\titlerule*[0.5pc]{$\cdot$}\contentspage}
-\titlecontents{subsubsection}[4.5em]{\fontsize{12bp}{18bp}}{\contentslabel{1.83em}}{}{\titlerule*[0.5pc]{$\cdot$}\contentspage}
-\titlecontents{paragraph}[5.5em]{\fontsize{12bp}{18bp}}{\contentslabel{2.67em}}{}{\titlerule*[0.5pc]{$\cdot$}\contentspage}
+\titlecontents{section}[2em]{\CJKfamily{simhei}\bfseries\setfont{-4}{1.5}}{\contentslabel{2em}}{}{\titlerule*[0.5pc]{$\cdot$}\contentspage}
+\titlecontents{subsection}[2.5em]{\setfont{-4}{1.5}}{\contentslabel{1em}}{}{\titlerule*[0.5pc]{$\cdot$}\contentspage}
+\titlecontents{subsubsection}[4.5em]{\setfont{-4}{1.5}}{\contentslabel{1.83em}}{}{\titlerule*[0.5pc]{$\cdot$}\contentspage}
+\titlecontents{paragraph}[5.5em]{\setfont{-4}{1.5}}{\contentslabel{2.67em}}{}{\titlerule*[0.5pc]{$\cdot$}\contentspage}
 %-----------------------------------------------------------------
 % cover
 %-----------------------------------------------------------------
@@ -153,13 +156,14 @@ Test content. Test content. Test content. Test content. Test content. Test conte
     \vspace{48bp}
     % 个人信息
     \newcommand{\infotext}[1]{{\fontsize{16bp}{20pt}\selectfont\bfseries {##1}}}
+    \newcommand{\infotextnobf}[1]{{\fontsize{16bp}{20pt}\selectfont {##1}}}
     \newlength{\tempwidth}
     \settowidth{\tempwidth}{\infotext{字字字字字字}}
     \begin{center}
-        \makebox[\tempwidth][l]{\infotext{姓名与学号}}\underline{\makebox[7cm][c]{\infotext{\StudentName\ \StudentID}}} \\[28bp]
-        \makebox[\tempwidth][l]{\infotext{指导教师}}\underline{\makebox[7cm][c]{\infotext{\Supervisor}}} \\[28bp]
-        \makebox[\tempwidth][l]{\infotext{年级与专业}}\underline{\makebox[7cm][c]{\infotext{\Grade\ \Major}}} \\[28bp]
-        \makebox[\tempwidth][l]{\infotext{所在学院}}\underline{\makebox[7cm][c]{\infotext{\College}}} \\
+        \makebox[\tempwidth][l]{\infotext{姓名与学号}}\underline{\makebox[7cm][c]{\infotextnobf{\StudentName\ \StudentID}}} \\[28bp]
+        \makebox[\tempwidth][l]{\infotext{指导教师}}\underline{\makebox[7cm][c]{\infotextnobf{\Supervisor}}} \\[28bp]
+        \makebox[\tempwidth][l]{\infotext{年级与专业}}\underline{\makebox[7cm][c]{\infotextnobf{\Grade\ \Major}}} \\[28bp]
+        \makebox[\tempwidth][l]{\infotext{所在学院}}\underline{\makebox[7cm][c]{\infotextnobf{\College}}} \\
     \end{center}
     \clearpage
 }
