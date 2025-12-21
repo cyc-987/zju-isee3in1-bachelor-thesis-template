@@ -1,5 +1,5 @@
 \NeedsTeXFormat{LaTeX2e}
-\ProvidesClass{isee3in1}[2025/12/01 ZJU ISEE 3-in-1 report class]
+\ProvidesClass{isee3in1}[2025/12/21 ZJU ISEE 3-in-1 report class]
 %-----------------------------------------------------------------
 % load class options
 %-----------------------------------------------------------------
@@ -37,6 +37,8 @@
 \RequirePackage{fontspec}
 \RequirePackage{tabularx}
 \RequirePackage{amssymb}
+\RequirePackage{pdfpages}
+\RequirePackage{xfp}
 %-----------------------------------------------------------------
 % format settings
 %-----------------------------------------------------------------
@@ -67,9 +69,10 @@
 %-----------------------------------------------------------------
 % Syntactic sugar
 %-----------------------------------------------------------------
-\newcommand{\setfont}[2]{\zihao{#1}\linespread{#2}\selectfont}
+\newcommand{\setfont}[2]{\zihao{#1}\linespread{\fpeval{(#2)*1.625/1.5}}\selectfont}
 % 常用字体
 \newcommand{\mainfont}[1]{{\setfont{-4}{1.5}{#1}}} % 正文：小四12磅仿宋1.5行距
+\newcommand{\globalmainfont}{\setfont{-4}{1.5}}
 \newcommand{\ptheadingfont}[1]{{\CJKfamily{simsun}\setfont{5}{1.5}\bfseries{#1}}} % 图表标题：五号宋体10.5磅加粗1.5行距
 \newcommand{\ptmainfont}[1]{{\CJKfamily{simsun}\setfont{5}{1}{#1}}} % 图表正文：五号宋体10.5磅1行距
 \newcommand{\headfont}[1]{{\CJKfamily{simsun}\setfont{-5}{1}{#1}}}
