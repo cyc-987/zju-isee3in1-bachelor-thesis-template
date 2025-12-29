@@ -33,7 +33,7 @@
 \RequirePackage{algorithm}
 \RequirePackage{algpseudocode}
 \RequirePackage{chapterbib}
-\RequirePackage{gbt7714}
+\RequirePackage[sort&compress]{gbt7714}
 \RequirePackage{fontspec}
 \RequirePackage{tabularx}
 \RequirePackage{amssymb}
@@ -59,6 +59,7 @@
 \renewcommand{\figurename}{\ptheadingfont{图}}
 \renewcommand{\tablename}{\ptheadingfont{表}}
 \RequirePackage[colorlinks=true,linkcolor=black,citecolor=black,CJKbookmarks=true]{hyperref}
+\captionsetup{labelsep=space}
 % 公式设定
 \numberwithin{equation}{subsection} % 将公式编号与章节关联
 \numberwithin{figure}{subsection} % 图的编号与章节关联
