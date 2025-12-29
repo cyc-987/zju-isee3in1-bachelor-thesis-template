@@ -58,8 +58,16 @@
 \renewcommand{\thetable}{\arabic{subsection}.\arabic{table}}
 \renewcommand{\figurename}{\ptheadingfont{图}}
 \renewcommand{\tablename}{\ptheadingfont{表}}
-\RequirePackage[colorlinks=true,linkcolor=black,citecolor=black,CJKbookmarks=true]{hyperref}
 \captionsetup{labelsep=space}
+\DeclareCaptionFont{zjuCapBase}{\CJKfamily{simsun}\zihao{5}\setstretch{1.5}}
+\captionsetup{
+  font=zjuCapBase,      % 整体五号宋体 + 1.5 行距
+  labelfont=bf,         % “图/表 + 编号”加粗
+  textfont=normalfont,  % 标题正文不加粗
+  labelsep=space,
+  singlelinecheck=true  % 单行要保留居中
+}
+\RequirePackage[colorlinks=true,linkcolor=black,citecolor=black,CJKbookmarks=true]{hyperref}
 % 公式设定
 \numberwithin{equation}{subsection} % 将公式编号与章节关联
 \numberwithin{figure}{subsection} % 图的编号与章节关联
