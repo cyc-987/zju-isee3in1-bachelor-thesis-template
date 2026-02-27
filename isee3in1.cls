@@ -63,7 +63,7 @@
 \captionsetup{
   font=zjuCapBase,      % 整体五号宋体 + 1.5 行距
   labelfont=bf,         % “图/表 + 编号”加粗
-  textfont=normalfont,  % 标题正文不加粗
+  textfont=bf,  % 标题正文加粗
   labelsep=space,
   singlelinecheck=true  % 单行要保留居中
 }

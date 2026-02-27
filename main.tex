@@ -12,6 +12,13 @@
 %-----------------------------------------------------------------
 % main doc
 %-----------------------------------------------------------------
+\newenvironment{TranslationNoMiniToc}{%
+  % 进入翻译部分：把 tocdepth 写进 .toc（对目录显示生效）
+  \addtocontents{toc}{\protect\setcounter{tocdepth}{1}}%
+}{%
+  % 离开翻译部分：恢复到 cls 里默认的 3
+  \addtocontents{toc}{\protect\setcounter{tocdepth}{3}}%
+}
 \begin{document}
 % 目录
 \makecover
